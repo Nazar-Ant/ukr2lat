@@ -5,7 +5,7 @@ import type { MyContext } from "./types.ts";
 
 const bot = new Bot<MyContext>(Deno.env.get("BOT_TOKEN") || "");
 
-bot.use(session({ initial: () => ({}) }));
+bot.use(session());
 bot.use(conversations());
 
 bot.command("start", (ctx) => ctx.reply("hello"));
