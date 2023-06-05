@@ -1,4 +1,4 @@
-import "https://deno.land/std@0.185.0/dotenv/load.ts";
+import "https://deno.land/std@0.190.0/dotenv/load.ts";
 import { Bot, session } from "grammy";
 import { conversations } from "grammy/conversations";
 import type { MyContext } from "./types.ts";
