@@ -5,7 +5,7 @@ import type { MyContext } from "./types.ts";
 import { translate } from "./lib/translate.ts";
 
 const bot = new Bot<MyContext>(Deno.env.get("BOT_TOKEN") || "");
-
+// @ts-expect-error: some problem with recognizing a string as an AlphabetName type
 bot.use(session({ initial: () => ({ alphabetName: "prudeus" }) }));
 bot.use(conversations());
 

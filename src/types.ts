@@ -6,6 +6,6 @@ export type MyContext =
   & SessionFlavor<{ alphabetName: AlphabetName }>
   & ConversationFlavor;
 export type MyConversationFn = ConversationFn<MyContext>;
-export type AlphabetName = "prudeus";
-export type Alphabet = Record<string, string>;
-export type Translate = (text: string) => string;
+export type AlphabetName = "prudeus" | "passport" | "geography" | "iso9";
+export type Alphabet = Record<string, string | { start: string; other: string }>;
+export type Alphabets = Record<AlphabetName, Alphabet>;
