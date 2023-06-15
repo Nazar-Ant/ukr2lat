@@ -5,10 +5,10 @@ import { AlphabetName } from "../src/types.ts";
 const data: Record<"pangram" | AlphabetName, string> = {
   pangram: "Жебракують філософи при ґанку церкви в Гадячі, ще й шатро їхнє п'яне знаємо",
   prudeus: "Žebrakujut' filosofy pry ĝanku сerkvy v Gadjači, šče j šatro jihnje p'jane znajemo",
-  passport:
-    "Zhebrakuiut filosofy pry ganku tserkvy v Hadiachi, shche y shatro yikhnie pyane znaiemo",
-  geography:
-    "Zhebrakuiut' filosofy pry ganku tserkvy v Hadiachi, sche y shatro yikhnie p'yane znaiemo",
+  // deno-fmt-ignore
+  passport: "Zhebrakuiut filosofy pry ganku tserkvy v Hadiachi, shche y shatro yikhnie pyane znaiemo",
+  // deno-fmt-ignore
+  geography: "Zhebrakuiut' filosofy pry ganku tserkvy v Hadiachi, sche y shatro yikhnie p'yane znaiemo",
   iso9: "Žebrakuût´ fìlosofi pri ģanku cerkvi v Hadâčì, šče j šatro їhnê p'âne znaêmo",
 };
 
