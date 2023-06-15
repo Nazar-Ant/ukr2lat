@@ -147,15 +147,15 @@ export const translate = (text: string, alphabetName: AlphabetName) => {
   const alphabet = alphabets[alphabetName];
   const chars = text.split("");
   const translatedChars = chars.map((char, index, self) => {
-    const isStartOfWord = !/\p{L}/.test(self[index - 1]);
+    const isStartOfWord = !/\p{L}/u.test(self[index - 1]);
     const lowerCaseChar = char.toLowerCase();
     const traslatedChar = alphabet[lowerCaseChar];
+    if (traslatedChar === undefined) return char;
     const traslatedCharValue = typeof traslatedChar === "string"
       ? traslatedChar
       : isStartOfWord
       ? traslatedChar.start
       : traslatedChar.other;
-    if (traslatedCharValue === undefined) return char;
     if (char === lowerCaseChar) return traslatedCharValue;
     if (traslatedCharValue.length === 1) return traslatedCharValue.toUpperCase();
     return traslatedCharValue[0].toUpperCase() +
