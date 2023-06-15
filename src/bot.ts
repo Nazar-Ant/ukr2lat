@@ -11,5 +11,10 @@ bot.use(conversations());
 
 bot.command("start", (ctx) => ctx.reply("hello"));
 bot.on("message:text", (ctx) => ctx.reply(translate(ctx.message.text, ctx.session.alphabetName)));
+bot.on("edited_message:text", (ctx) => {
+  const messageIdToEdit = ctx.editedMessage.message_id + 1;
+  const translation = translate(ctx.editedMessage.text, ctx.session.alphabetName);
+  return ctx.api.editMessageText(ctx.chat.id, messageIdToEdit, translation);
+});
 
 bot.start();
