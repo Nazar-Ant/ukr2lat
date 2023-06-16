@@ -1,7 +1,7 @@
 {
   "importMap": "importMap.json",
   "tasks": {
-    "dev": "deno run --watch --allow-read --allow-env --allow-net src/bot.ts"
+    "dev": "deno run --watch --allow-read --allow-env --allow-net src/polling.ts"
   },
   "fmt": {
     "lineWidth": 100
