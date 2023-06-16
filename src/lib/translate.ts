@@ -143,6 +143,12 @@ const alphabets: Alphabets = {
     я: "â",
   },
 };
+export const alphabetNames: Record<AlphabetName, string> = {
+  prudeus: "Проєкт Прудеуса",
+  passport: "Паспортна",
+  geography: "Географічна",
+  iso9: "ISO 9",
+};
 export const translate = (text: string, alphabetName: AlphabetName) => {
   const alphabet = alphabets[alphabetName];
   const chars = text.split("");
@@ -161,5 +167,5 @@ export const translate = (text: string, alphabetName: AlphabetName) => {
     return traslatedCharValue[0].toUpperCase() +
       traslatedCharValue.slice(1, traslatedCharValue.length + 1);
   });
-  return translatedChars.join("");
+  return `${translatedChars.join("")}\n\nВикористана абетка: ${alphabetNames[alphabetName]}`;
 };
