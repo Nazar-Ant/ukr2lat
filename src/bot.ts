@@ -9,7 +9,14 @@ const bot = new Bot<MyContext>(Deno.env.get("BOT_TOKEN") || "");
 bot.use(session({ initial: () => ({ alphabetName: "prudeus" }) }));
 bot.use(alphabetsMenu);
 
-bot.command("start", (ctx) => ctx.reply("hello"));
+bot.command("start", (ctx) =>
+  ctx.reply(
+    `Вітаю! Я - бот, який перекладе україномовний текст латинкою.
+Просто надішли мені текстове повідомлення.
+Якщо хочеш змінити своє повідмолення, відредагуй його, а я синхронізую переклад.
+До кожного перекладу я додаю кілька кнопок, щоб ти мав змогу перемикатися між різними абетками.
+Щоб побачити приклади перекладів, надішли мені /help.`,
+  ));
 bot.on("message:text", (ctx) =>
   ctx.reply(
     translate(ctx.message.text, ctx.session.alphabetName),
