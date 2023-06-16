@@ -11,25 +11,26 @@ const data: Record<"pangram" | AlphabetName, string> = {
   geography: "Zhebrakuiut' filosofy pry ganku tserkvy v Hadiachi, sche y shatro yikhnie p'yane znaiemo",
   iso9: "Žebrakuût´ fìlosofi pri ģanku cerkvi v Hadâčì, šče j šatro їhnê p'âne znaêmo",
 };
+const removeNoteAboutUsedAlphabet = (translation: string) => {
+  const noteIndex = translation.indexOf("\n\nВикористана абетка");
+  return translation.slice(0, noteIndex);
+};
 
 Deno.test("translate", async (t) => {
   await t.step("prudeus", () => {
     const translation = translate(data.pangram, "prudeus");
-    assertEquals(translation, data.prudeus);
+    assertEquals(removeNoteAboutUsedAlphabet(translation), data.prudeus);
   });
-
   await t.step("passport", () => {
     const translation = translate(data.pangram, "passport");
-    assertEquals(translation, data.passport);
+    assertEquals(removeNoteAboutUsedAlphabet(translation), data.passport);
   });
-
   await t.step("geography", () => {
     const translation = translate(data.pangram, "geography");
-    assertEquals(translation, data.geography);
+    assertEquals(removeNoteAboutUsedAlphabet(translation), data.geography);
   });
-
   await t.step("iso9", () => {
     const translation = translate(data.pangram, "iso9");
-    assertEquals(translation, data.iso9);
+    assertEquals(removeNoteAboutUsedAlphabet(translation), data.iso9);
   });
 });
