@@ -2,7 +2,6 @@
   "imports": {
     "std/testing": "https://deno.land/std@0.191.0/testing/asserts.ts",
     "grammy": "https://deno.land/x/grammy@v1.16.0/mod.ts",
-    "grammy/conversations": "https://deno.land/x/grammy_conversations@v1.1.1/mod.ts",
     "grammy/menu": "https://deno.land/x/grammy_menu@v1.2.1/mod.ts"
   }
 }
